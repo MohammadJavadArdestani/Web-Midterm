@@ -7,18 +7,12 @@ const baseApi = "https://api.genderize.io/?name="
 
 let currentName = "";
 
-function submitCustom(event) {
+function submitQuery(event) {
   console.log("submitCustom called")
   event.preventDefault()
   currentName = nameInput.value
   if (!currentName) {
     return
-  }
-
-  const selectedGender = document.querySelector('input[name="gender"]:checked');
-  if(selectedGender) {
-    console.log("storing value in localstorage", currentName, selectedGender.value)
-    localStorage.setItem(currentName, selectedGender.value)
   }
 
   const savedGender = localStorage.getItem(currentName)
@@ -44,6 +38,22 @@ function submitCustom(event) {
   }
   req.open("GET", baseApi+currentName, true);
   req.send( null);
+}
+
+function saveCustom(event) {
+  console.log("saveCustom called")
+  event.preventDefault()
+  currentName = nameInput.value
+  if (!currentName) {
+    return
+  }
+
+  const selectedGender = document.querySelector('input[name="gender"]:checked');
+  if(selectedGender) {
+    console.log("storing value in localstorage", currentName, selectedGender.value)
+    localStorage.setItem(currentName, selectedGender.value)
+    savedAnswer.innerText = selectedGender.value
+  }
 }
 
 function clearCustom(event) {

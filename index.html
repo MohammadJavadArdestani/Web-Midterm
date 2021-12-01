@@ -15,13 +15,14 @@
 <section class="center container flex-row" style="min-width: 45%">
   <div class="container flex-col" style="width: 40%">
     <h3>Mr or Mrs?</h3>
-    <form class="flex-col" onsubmit="submitCustom(event)">
+    <form class="flex-col" onsubmit="submitQuery(event)">
       <label class="flex-row" for="name-input">Name:
         <input class="margin-5" id="name-input" type="text" maxlength="255" pattern="^[a-zA-Z\s]*$">
       </label>
       <label class="flex-row" for="male-radio">Male <input class="margin-5" type="radio" id="male-radio" name="gender" value="male"></label>
       <label class="flex-row" for="female-radio">Female <input class="margin-5" type="radio" id="female-radio" name="gender" value="female"></label>
       <input type="submit" class="button">
+      <button class="button" onclick="saveCustom(event)">Save</button>
     </form>
   </div>
   <div class="container flex-col" style="width: 40%">
