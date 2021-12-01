@@ -1,0 +1,87 @@
+/* makes a div to span whole visible page */
+.background {
+  position:fixed;
+  padding:0;
+  margin:0;
+
+  top:0;
+  left:0;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* adds background to a div and sets it to be below other divs */
+#background-image {
+  background-image: url("../assets/AdobeStock_62125649-835x424.webp");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  z-index: -1;
+}
+
+/* adds background color to a div and sets it to be below other divs (even below image) */
+#background-color {
+  background: #799979;
+  z-index: -2;
+}
+
+/* centers a div in the middle of visible page */
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* generic container class with padding and edges */
+.container {
+  background: #aaaaaa;
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+/* generic column flex box */
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* generic row flex box */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* generic margin class */
+.margin-5 {
+  margin: 5px;
+}
+
+
+/* style for button so they are not ugly */
+.button {
+  border: none;
+  padding: 5px 10px;
+  align-self: center;
+  margin: 10px 5px 0 5px;
+}
+.button:hover {
+  background: #DDDDDD;
+}
+
+/* self explanatory */
+.dotted-border {
+  border: #444444 dotted 2px;
+}
+
+/* make user notice input is invalid */
+input:invalid {
+  border: red solid 3px;
+}

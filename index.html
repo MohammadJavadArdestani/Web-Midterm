@@ -10,8 +10,35 @@
 </head>
 
 <body>
-  <p>Hello world!</p>
-  <script src="js/main.js"></script>
+<div id="background-color" class="background"></div>
+<div id="background-image" class="background"></div>
+<section class="center container flex-row" style="min-width: 45%">
+  <div class="container flex-col" style="width: 40%">
+    <h3>Mr or Mrs?</h3>
+    <form class="flex-col" onsubmit="submitCustom(event)">
+      <label class="flex-row" for="name-input">Name:
+        <input class="margin-5" id="name-input" type="text" maxlength="255" pattern="^[a-zA-Z\s]*$">
+      </label>
+      <label class="flex-row" for="male-radio">Male <input class="margin-5" type="radio" id="male-radio" name="gender" value="male"></label>
+      <label class="flex-row" for="female-radio">Female <input class="margin-5" type="radio" id="female-radio" name="gender" value="female"></label>
+      <input type="submit" class="button">
+    </form>
+  </div>
+  <div class="container flex-col" style="width: 40%">
+    <div class="container flex-col" style="width: 100%">
+      <h3>Prediction</h3>
+      <p id="prediction-gender"></p>
+      <p id="prediction-confidence"></p>
+    </div>
+    <div class="container flex-col dotted-border" style="width: 100%">
+      <h3>Saved Answer</h3>
+      <p id="saved-answer"></p>
+      <button class="button" >Clear</button>
+    </div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
 </body>
 
 </html>
