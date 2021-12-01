@@ -1,0 +1,19 @@
+{
+  "name": "mrormrs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohammadJavadArdestani/Web-Midterm.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MohammadJavadArdestani/Web-Midterm/issues"
+  },
+  "homepage": "https://github.com/MohammadJavadArdestani/Web-Midterm#readme"
+}
