@@ -19,50 +19,62 @@ function submitQuery(event) {
   if (savedGender) {
     savedAnswer.innerText = savedGender
   } else {
-    savedAnswer.innerText = ""
+    savedAnswer.innerText = "Nothing saved!"
   }
 
   const req = new XMLHttpRequest();
+  
+
   req.onreadystatechange = () => {
     if (req.readyState === 4 && req.status === 200) {
       const res = JSON.parse(req.responseText)
       if (res) {
-        if (res.gender) {
-          predictionGender.innerText = res.gender
+        if (!res.gender) {
+          predictionGender.innerText = "There is no guess for '"+ currentName + "'"
+          predictionConfidence.innerText = ""
+        } else {
+          predictionGender.innerText = "Gender: " +res.gender
+          if (res.probability) {
+            predictionConfidence.innerText = "Probability: " + res.probability
+          }
         }
-        if (res.probability) {
-          predictionConfidence.innerText = res.probability
-        }
-      }
+      } 
+    } else if (req.readyState === 4 && !req.status === 200){
+      predictionGender.innerText = "Some thing went wrong :( \n Try again please."
+      predictionConfidence.innerText = ""
     }
   }
   req.open("GET", baseApi+currentName, true);
   req.send( null);
 }
 
-function saveCustom(event) {
-  console.log("saveCustom called")
+function saveNameGender(event) {
+  console.log("saveNameGender called")
   event.preventDefault()
   currentName = nameInput.value
   if (!currentName) {
     return
   }
-
-  const selectedGender = document.querySelector('input[name="gender"]:checked');
+  submitQuery(event)
+  const selectedGender = document.querySelector('input[name="gender"]:checked'); //get radio button data
   if(selectedGender) {
     console.log("storing value in localstorage", currentName, selectedGender.value)
     localStorage.setItem(currentName, selectedGender.value)
     savedAnswer.innerText = selectedGender.value
+    
+  } else {
+    localStorage.setItem(currentName, predictionGender.innerText)
+    savedAnswer.innerText = predictionGender.innerText
   }
 }
 
-function clearCustom(event) {
-  console.log("clearCustom called")
+function removeSavedData(event) {
+  console.log("removeSavedData called")
   event.preventDefault()
   if (!currentName) {
     return
   }
-  console.log("removing value from localstorage", currentName)
+  console.log("removing Name-Gender from localstorage", currentName)
   localStorage.removeItem(currentName)
-  savedAnswer.innerText = ""
+  savedAnswer.innerText = "Nothing saved!"
 }
