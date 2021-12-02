@@ -12,28 +12,28 @@
 }
 
 
-/* adds background to a div and sets it to be below other divs */
+/* adds background image in full-size to a div and sets it to be below other divs */
 #background-image {
   background-image: url("../assets/AdobeStock_62125649-835x424.webp");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100% 100%;
-  z-index: -1;
+  background-size: 100% 100%; /* dont need to set background-repeat */
+  z-index: -1; /* be under other divs */ 
 }
 
 /* adds background color to a div and sets it to be below other divs (even below image) */
 #background-color {
-  background: #799979;
-  z-index: -2;
+  background: #c8caca4d;
+  z-index: -2; /* be under background image */
 }
 
 /* centers a div in the middle of visible page */
 .center {
-  position: absolute;
+  position: absolute; /* relative to the nearest positioned ancestor */
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* centred for dynamic screen size */
 }
 
 /* generic container class with padding and edges */
@@ -65,15 +65,21 @@
 }
 
 
-/* style for button so they are not ugly */
+/* style for button so they are not ugly :) */
 .button {
   border: none;
   padding: 5px 10px;
   align-self: center;
-  margin: 10px 5px 0 5px;
+  margin: 10px 5px 0px 5px;
 }
+/* button be dark on hover */
 .button:hover {
-  background: #DDDDDD;
+  filter: brightness(50%);
+}
+/* button and div resize for click */
+.button:active {
+  vertical-align: top;
+  padding: 8px 13px 6px;
 }
 
 /* self explanatory */
