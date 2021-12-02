@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Mr or Mrs??</title>
+  <link rel="icon" href="ICON.PNG">
   <meta name="description" content="Web Midterm Project">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/main.css">
@@ -12,21 +13,24 @@
 <body>
 <div id="background-color" class="background"></div>
 <div id="background-image" class="background"></div>
-<section class="center container flex-row" style="min-width: 45%">
+<section class="center container flex-row" style="min-width: 45%; opacity: 0.8;" >
   <div class="container flex-col" style="width: 40%">
-    <h3>Mr or Mrs?</h3>
+    <h2>Mr or Mrs?</h2>
     <form class="flex-col" onsubmit="submitQuery(event)">
       <label class="flex-row" for="name-input">Name:
         <input class="margin-5" id="name-input" type="text" maxlength="255" pattern="^[a-zA-Z\s]*$">
       </label>
       <label class="flex-row" for="male-radio">Male <input class="margin-5" type="radio" id="male-radio" name="gender" value="male"></label>
       <label class="flex-row" for="female-radio">Female <input class="margin-5" type="radio" id="female-radio" name="gender" value="female"></label>
-      <input type="submit" class="button">
-      <button class="button" onclick="saveCustom(event)">Save</button>
+      <!-- if you want save from Prediction without refresh add below button and activate it in main.js -->
+      <!-- <label class="flex-row" for="prediction-radio">Prediction <input class="margin-5" type="radio" id="prediction-radio" name="gender" value="prediction"></label> -->
+      
+      <input type="submit" class="button" style = "background-color:green">
+      <button class="button" onclick="saveNameGender(event)" style = "background-color: rgb(119, 0, 255);">Save</button>
     </form>
   </div>
   <div class="container flex-col" style="width: 40%">
-    <div class="container flex-col" style="width: 100%">
+    <div class="container flex-col dotted-border" style="width: 100%">
       <h3>Prediction</h3>
       <p id="prediction-gender"></p>
       <p id="prediction-confidence"></p>
@@ -34,7 +38,7 @@
     <div class="container flex-col dotted-border" style="width: 100%">
       <h3>Saved Answer</h3>
       <p id="saved-answer"></p>
-      <button class="button" onclick="clearCustom(event)">Clear</button>
+      <button class="button" onclick="removeSavedData(event)" style = "background-color:red">Clear</button>
     </div>
   </div>
 </section>
